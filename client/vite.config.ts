@@ -16,4 +16,5 @@ export default defineConfig({
   build: {
     outDir: resolve(__dirname, "../dist/client"),
   },
+  cacheDir: "../node_modules/.vite",
 });
