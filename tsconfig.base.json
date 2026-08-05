@@ -10,7 +10,10 @@
     "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": true,
-    "composite": true
+    "composite": true,
+    "paths": {
+      "@shared/*": ["./shared/src/*"]
+    }
   },
   "include": [],
   "references": [

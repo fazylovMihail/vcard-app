@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../dist/server",
+    "rootDir": "./src",
+    "noEmit": false,
+    "composite": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shared/*": ["../../shared/src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
