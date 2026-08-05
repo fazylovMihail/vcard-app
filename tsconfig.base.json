@@ -6,20 +6,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
     "resolveJsonModule": true,
-    "declaration": true,
-    "declarationMap": true,
-    "composite": true,
     "paths": {
       "@shared/*": ["./shared/src/*"]
     }
   },
-  "include": [],
-  "references": [
-    { "path": "./client" },
-    { "path": "./server" },
-    { "path": "./shared" }
-  ],
   "exclude": ["node_modules"]
 }

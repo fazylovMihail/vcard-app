@@ -4,11 +4,15 @@
     "outDir": "../dist/server",
     "rootDir": "./src",
     "noEmit": false,
-    "composite": true,
+    "composite": false,
+    "incremental": false,
+    "declaration": false,
+    "declarationMap": false,
     "paths": {
       "@/*": ["./src/*"],
-      "@shared/*": ["../../shared/src/*"]
-    }
+      "@shared/*": ["../shared/src/*"]
+    },
+    "types": ["node"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

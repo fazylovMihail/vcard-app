@@ -4,7 +4,10 @@
     "outDir": "../dist/shared",
     "rootDir": "./src",
     "noEmit": false,
-    "composite": true,
+    "composite": false,
+    "incremental": false,
+    "declaration": false,
+    "declarationMap": false,
     "paths": {
       "@/*": ["./src/*"]
     }

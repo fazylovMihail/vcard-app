@@ -8,12 +8,13 @@
     "shared"
   ],
   "scripts": {
-    "dev": "npm run dev --workspaces --if-present",
-    "build": "rimraf dist && npm run build --workspaces --if-present",
+    "migrate:latest": "npm run db:migrate --workspace server",
+    "dev": "npm run migrate:latest && npm run dev --workspaces --if-present",
+    "build": "rimraf dist && npm run build --workspaces --if-present && npm run migrate:latest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.0.0",
