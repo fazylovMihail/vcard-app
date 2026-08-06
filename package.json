@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "typecheck": "tsc"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.0.0",
