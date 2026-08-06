@@ -5,7 +5,13 @@ import tsParser from "@typescript-eslint/parser";
 
 export default [
   {
-    ignores: ["**/dist/**", "**/node_modules/**", "**/*.config.js", "**/coverage/**"],
+    ignores: [
+      "**/dist/**",
+      "**/node_modules/**",
+      "**/*.config.js",
+      "**/coverage/**",
+      "server/knexfile.ts",
+    ],
   },
   js.configs.recommended,
   eslintConfigPrettier,
