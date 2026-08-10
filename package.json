@@ -9,28 +9,36 @@
   ],
   "scripts": {
     "migrate:latest": "npm run db:migrate --workspace server",
-    "dev": "npm run migrate:latest && npm run dev --workspaces --if-present",
+    "dev": "npm run dev --workspace server",
     "build": "rimraf dist && npm run build --workspaces --if-present && npm run migrate:latest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "jest"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.0.0",
     "@eslint/js": "^9.20.0",
+    "@types/jest": "^30.0.0",
     "@types/node": "^26.1.2",
     "@typescript-eslint/parser": "^8.66.0",
     "commitlint": "^19.0.0",
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.0.0",
     "husky": "^9.1.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
     "prettier": "^3.5.0",
     "rimraf": "^6.1.3",
+    "ts-jest": "^29.4.12",
     "typescript": "^5.8.0",
     "typescript-eslint": "^8.66.0"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
   }
 }

@@ -1,19 +1,22 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "rootDir": "../",
     "outDir": "../dist/server",
-    "rootDir": "./src",
-    "noEmit": false,
-    "composite": false,
-    "incremental": false,
-    "declaration": false,
-    "declarationMap": false,
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@server/*": ["./src/*"],
       "@shared/*": ["../shared/src/*"]
-    },
-    "types": ["node"]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*",
+    "knexfile.ts",
+    "../shared/src/**/*",
+    "../client/src/utils/pdfStyles.ts",
+    "../shared/src/AppError.ts"
+  ],
+  "exclude": ["node_modules", "../**/node_modules", "../dist"]
 }

@@ -7,6 +7,7 @@
     "skipLibCheck": true,
     "strict": true,
     "resolveJsonModule": true,
+    "types": ["jest", "node"],
     "paths": {
       "@shared/*": ["./shared/src/*"]
     }
