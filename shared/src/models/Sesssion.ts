@@ -16,3 +16,7 @@ export type SessionList = z.infer<typeof SessionsListSchema>;
 export const CreateSessionSchema = SessionSchema.omit({ created_at: true });
 
 export type CreateSession = z.infer<typeof CreateSessionSchema>;
+
+export const ReturningSessionSchema = SessionSchema.pick({ session_id: true });
+
+export type ReturningSession = z.infer<typeof ReturningSessionSchema>;

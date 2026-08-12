@@ -14,7 +14,9 @@ export const UsersListSchema = z.array(UserSchema);
 
 export type UsersList = z.infer<typeof UsersListSchema>;
 
-export const UserLoginSchema = UserSchema.pick({ username: true, password: true });
+export const UserLoginSchema = UserSchema.pick({ username: true }).extend({
+  password: z.string().min(8).max(255),
+});
 
 export type UserLogin = z.infer<typeof UserLoginSchema>;
 

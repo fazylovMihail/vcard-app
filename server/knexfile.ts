@@ -1,12 +1,5 @@
 import type { Knex } from "knex";
-import * as dotenv from "dotenv";
-import { resolve, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-const rootEnv = resolve(__dirname, "../.env");
-dotenv.config({ path: rootEnv });
+import { resolve } from "node:path";
 
 const config: Knex.Config = {
   client: "pg",
