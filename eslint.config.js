@@ -9,16 +9,18 @@ export default [
       "**/dist/**",
       "**/node_modules/**",
       "**/*.config.js",
+      "**/*.config.ts",
       "**/coverage/**",
       "server/knexfile.ts",
     ],
   },
   js.configs.recommended,
   eslintConfigPrettier,
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.strictTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   {
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: "latest",
       sourceType: "module",
       parser: tsParser,
       parserOptions: {
@@ -31,6 +33,24 @@ export default [
     },
     rules: {
       "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-debugger": "error",
+      "no-duplicate-imports": "error",
+      "no-var": "error",
+      "prefer-const": "error",
+      "prefer-template": "warn",
+      eqeqeq: ["error", "always", { null: "ignore" }],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          ignoreRestSiblings: true,
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/no-misused-promises": ["error", { checksVoidReturn: false }],
     },
   },
 ];
