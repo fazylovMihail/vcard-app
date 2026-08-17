@@ -7,9 +7,11 @@
     "skipLibCheck": true,
     "strict": true,
     "resolveJsonModule": true,
+    "types": ["jest", "node"],
     "paths": {
       "@shared/*": ["./shared/src/*"]
     }
   },
+  "include": ["logger.ts"],
   "exclude": ["node_modules"]
 }

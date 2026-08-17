@@ -4,20 +4,25 @@
   "type": "commonjs",
   "main": "./src/server.ts",
   "scripts": {
-    "dev": "nodemon --watch src --ext ts,json --exec \"node --loader ts-node/esm src/index.ts\"",
+    "dev": "node --import tsx --env-file=../.env --watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server/index.js",
+    "start": "node ../dist/server/server.js",
     "db:migrate": "node --import tsx --env-file=../.env ../node_modules/knex/bin/cli.js migrate:latest",
     "migrate:make": "node --import tsx --env-file=../.env ../node_modules/knex/bin/cli.js migrate:make",
     "migrate:rollback": "node --import tsx --env-file=../.env ../node_modules/knex/bin/cli.js migrate:rollback"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.4.2",
     "hono": "^4.7.0",
     "knex": "^3.3.0",
+    "nanoid": "^3.3.17",
     "pg": "^8.22.0"
   },
   "devDependencies": {
+    "@hono/node-server": "^2.1.1",
+    "@types/bcrypt": "^6.0.0",
+    "knex-mock-client": "^3.0.2",
     "nodemon": "^3.1.14",
     "tsx": "^4.23.8"
   }
