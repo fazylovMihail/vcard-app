@@ -1,6 +1,6 @@
 import type { Knex } from "knex";
 import * as dotenv from "dotenv";
-import { resolve, dirname } from "node:path";
+import { resolve } from "node:path";
 
 const rootEnv = resolve(__dirname, "../.env");
 dotenv.config({ path: rootEnv });

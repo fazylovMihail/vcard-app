@@ -1,7 +1,6 @@
 {
   "name": "vcard-app",
   "private": true,
-  "type": "module",
   "workspaces": [
     "client",
     "server",

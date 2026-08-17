@@ -12,10 +12,12 @@ app.route("/api", router);
 
 app.onError(errorMiddleware);
 
-const PORT = Number(process.env.PORT) || 4000;
-serve({
-  fetch: app.fetch,
-  port: PORT,
-});
+if (process.env.NODE_ENV !== "production") {
+  const PORT = Number(process.env.PORT) || 4000;
+  serve({
+    fetch: app.fetch,
+    port: PORT,
+  });
+}
 
 export default app;
