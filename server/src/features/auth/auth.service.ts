@@ -4,8 +4,8 @@ import { SessionCreate, SessionId } from "@shared/schemas/Session";
 import { compare } from "bcrypt";
 import { Knex } from "knex";
 import { nanoid } from "nanoid";
-import z from "zod";
 import { APP_ERRORS, AppError } from "@shared/appError";
+import z from "zod";
 
 export const LoginSchema = z.object({
   sessionId: IdSchema,
@@ -35,7 +35,7 @@ export class AuthService {
       .insert(rawSession)
       .returning<SessionId[] | undefined>("session_id");
 
-    if (!result || result.length === 0) throw new AppError(APP_ERRORS.INTERNAL_SERVER);
+    if (!result || result.length === 0) throw new AppError(APP_ERRORS.DATABASE_FAILED);
 
     return result[0].session_id;
   }
@@ -51,7 +51,9 @@ export class AuthService {
 
     const sessionId = await this.createSession(user.id);
 
-    return { sessionId, username: user.username };
+    const result = LoginSchema.parse({ sessionId, username: user.username });
+
+    return result;
   }
 
   async logout(sessionId: Id): Promise<void> {

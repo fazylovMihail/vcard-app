@@ -17,3 +17,7 @@ export type UsersList = z.infer<typeof UsersListSchema>;
 export const UserLoginSchema = UserSchema.pick({ username: true, password: true });
 
 export type UserLogin = z.infer<typeof UserLoginSchema>;
+
+export const LoginResponseSchema = UserSchema.shape.username;
+
+export type LoginResponse = z.infer<typeof LoginResponseSchema>;

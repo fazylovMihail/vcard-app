@@ -2,10 +2,25 @@ import { Context, Env } from "hono";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 
 export const APP_ERRORS = {
+  BAD_REQUEST: {
+    status: 400,
+    message: "Bad Request",
+    code: "VALIDATION_001",
+  },
   VALIDATION_FAILED: {
     status: 400,
     message: "Data is invalid.",
     code: "VALIDATION_002",
+  },
+  GUEST_MIDDLEWARE_FAILED: {
+    status: 400,
+    message: "You are already logged in.",
+    code: "AUTH_003",
+  },
+  DATABASE_FAILED: {
+    status: 200,
+    message: "Database error",
+    code: "DB_001",
   },
   AUTH_FAILED: {
     status: 401,
@@ -16,11 +31,6 @@ export const APP_ERRORS = {
     status: 401,
     message: "Session is invalid or has already expired.",
     code: "AUTH_002",
-  },
-  GUEST_MIDDLEWARE_FAILED: {
-    status: 400,
-    message: "You are already logged in.",
-    code: "AUTH_003",
   },
   AUTH_MIDDLEWARE_FAILED: {
     status: 401,
