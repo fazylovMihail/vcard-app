@@ -1,7 +1,9 @@
 import { createTracker, MockClient } from "knex-mock-client";
 import knex from "knex";
 import { hashSync } from "bcrypt";
-import { HttpLoginReponseSchema } from "@shared/schemas/responses/auth";
+import { LoginResponse, LoginResponseSchema } from "@shared/schemas/User";
+import { SESSION_COOKIE_NAME } from "@/shared/constants";
+import { AppResponse } from "@shared/schemas/appResponse";
 
 const mockedDb = knex({ client: MockClient });
 
@@ -11,7 +13,6 @@ jest.mock("@/shared/database", () => ({
 }));
 
 import app from "@/server";
-import { SESSION_COOKIE_NAME } from "@/shared/constants";
 
 const createAppRequest = (endpoint: string, body?: BodyInit, headers?: HeadersInit) => {
   return app.request(`/api/auth/${endpoint}`, {
@@ -77,12 +78,12 @@ describe("AuthController", () => {
           JSON.stringify({ username: inputUsername, password: inputPassword })
         );
 
-        const result = (await response.json()) as Response;
+        const result = (await response.json()) as AppResponse<LoginResponse>;
 
         expect(response.status).toBe(isPasswordCorrect ? 200 : 401);
 
         if (isPasswordCorrect) {
-          const parsedResult = HttpLoginReponseSchema.safeParse(result);
+          const parsedResult = LoginResponseSchema.safeParse(result.data);
 
           expect(parsedResult.success).toBe(true);
 

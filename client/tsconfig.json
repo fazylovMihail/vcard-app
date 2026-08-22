@@ -5,10 +5,9 @@
     "composite": false,
     "incremental": false,
     "rootDir": "../",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@shared/*": ["../shared/src/*"]
+      "@shared/*": ["./../shared/src/*"]
     },
     "jsx": "react-jsx",
     "types": ["vite/client"]
