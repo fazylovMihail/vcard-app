@@ -17,4 +17,11 @@ export default defineConfig({
     outDir: resolve(__dirname, "../dist/client"),
   },
   cacheDir: "../node_modules/.vite",
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/_variables.scss" as *;`,
+      },
+    },
+  },
 });
