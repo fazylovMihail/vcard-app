@@ -10,7 +10,7 @@
       "@shared/*": ["./../shared/src/*"]
     },
     "jsx": "react-jsx",
-    "types": ["vite/client"]
+    "types": ["vite/client", "jest"]
   },
   "include": ["src/**/*", "vite.config.ts", "index.html", "../shared/src/**/*"],
   "exclude": ["node_modules", "../**/node_modules", "dist"]
