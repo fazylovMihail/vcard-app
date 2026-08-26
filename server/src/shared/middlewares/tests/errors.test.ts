@@ -1,7 +1,7 @@
 import { APP_ERRORS, AppError } from "@shared/appError";
 import { Hono } from "hono";
-import { AppEnv } from "../utils-types";
-import { errorMiddleware } from "./errors";
+import { AppEnv } from "../../utils-types";
+import { errorMiddleware } from "../errors";
 import z from "zod";
 import { zValidator } from "@hono/zod-validator";
 

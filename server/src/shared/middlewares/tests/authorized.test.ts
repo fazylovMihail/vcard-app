@@ -1,6 +1,6 @@
 import { AppEnv } from "@/shared/utils-types";
 import { Hono } from "hono";
-import authorizedMiddleware from "./authorized";
+import { authorizedMiddleware } from "../auth";
 
 describe("authorizedMiddleware", () => {
   it("should return a 401 error if the userId variable is not found", async () => {

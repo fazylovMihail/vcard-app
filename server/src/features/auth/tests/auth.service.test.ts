@@ -1,5 +1,5 @@
 import knex, { Knex } from "knex";
-import { AuthService, LoginSchema } from "./auth.service";
+import { AuthService, LoginSchema } from "../auth.service";
 import { createTracker, MockClient, Tracker } from "knex-mock-client";
 import { compare, hashSync } from "bcrypt";
 import { APP_ERRORS, AppError } from "@shared/appError";
