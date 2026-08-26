@@ -5,8 +5,8 @@
   "main": "./src/server.ts",
   "scripts": {
     "dev": "node --import tsx --env-file=../.env --watch src/server.ts",
-    "build": "tsc",
-    "start": "node --import tsx ../dist/server/src/server.js",
+    "build": "tsc --project tsconfig.build.json",
+    "start": "node --env-file=../.env ../dist/server/src/server.js",
     "db:migrate": "node --import tsx --env-file=../.env ../node_modules/knex/bin/cli.js migrate:latest",
     "migrate:make": "node --import tsx --env-file=../.env ../node_modules/knex/bin/cli.js migrate:make",
     "migrate:rollback": "node --import tsx --env-file=../.env ../node_modules/knex/bin/cli.js migrate:rollback"

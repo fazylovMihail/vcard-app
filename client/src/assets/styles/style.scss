@@ -1,9 +1,8 @@
 // Global
-@use "global/fonts";
-@use "global/variables";
-@use "global/mixins";
-@use "global/reboot";
-@use "global/container";
+@use "global/fonts" as *;
+@use "global/mixins" as *;
+@use "global/reboot" as *;
+@use "global/container" as *;
 
 // Blocks
 @use "blocks/theme-change.scss";

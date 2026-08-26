@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "migrate:latest": "npm run db:migrate --workspace server",
-    "dev": "npm run db:migrate --workspace server && npm run dev --workspace server",
     "build": "rimraf dist && npm run build --workspaces --if-present && npm run migrate:latest",
+    "dev": "npm run build && npm run dev --workspace server",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",

@@ -15,12 +15,13 @@ export default defineConfig({
   },
   build: {
     outDir: resolve(__dirname, "../dist/client"),
+    emptyOutDir: true,
   },
   cacheDir: "../node_modules/.vite",
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@/styles/_variables.scss" as *;`,
+        additionalData: `@use "@/assets/styles/global/variables" as *;`,
       },
     },
   },
