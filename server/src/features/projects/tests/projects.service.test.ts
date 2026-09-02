@@ -1,6 +1,6 @@
 import knex from "knex";
 import { createTracker, MockClient, Tracker } from "knex-mock-client";
-import { ProjectsService } from "./projects.service";
+import { ProjectsService } from "../projects.service";
 import { APP_ERRORS, AppError } from "@shared/appError";
 
 describe("ProjectsService", () => {

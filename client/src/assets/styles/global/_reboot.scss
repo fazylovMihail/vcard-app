@@ -1,0 +1,37 @@
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: $ff-IBM;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-crayola-shamrock;
+
+  &.dark {
+    background-color: $color-traffic-blue;
+  }
+}
+
+main {
+  flex-grow: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  object-fit: cover;
+}

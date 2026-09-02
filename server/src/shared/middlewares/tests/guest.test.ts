@@ -1,6 +1,6 @@
 import { AppEnv } from "@/shared/utils-types";
 import { Hono } from "hono";
-import guestMiddleware from "./guest";
+import { guestMiddleware } from "../auth";
 
 describe("guestMiddleware", () => {
   it("should return a 400 error if the userId variable is missing", async () => {

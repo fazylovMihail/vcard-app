@@ -13,7 +13,7 @@ jest.mock("hono/cookie", () => ({
   deleteCookie: jest.fn(),
 }));
 
-import validateSessions from "./validateSessions";
+import { validateSessions } from "../auth";
 import { AppContext } from "@/shared/utils-types";
 
 describe("validateSession Middleware", () => {

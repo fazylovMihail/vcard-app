@@ -1,0 +1,13 @@
+@use "./variables" as *;
+
+@mixin vp-tablet {
+  @media (max-width: $vp-tablet) {
+    @content;
+  }
+}
+
+@mixin vp-mobile {
+  @media (max-width: $vp-mobile) {
+    @content;
+  }
+}

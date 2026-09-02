@@ -15,6 +15,16 @@ export default defineConfig({
   },
   build: {
     outDir: resolve(__dirname, "../dist/client"),
+    emptyOutDir: true,
   },
   cacheDir: "../node_modules/.vite",
+  server: {
+    port: 5173,
+    proxy: {
+      "/api": {
+        target: "http://localhost:4000",
+        changeOrigin: true,
+      },
+    },
+  },
 });

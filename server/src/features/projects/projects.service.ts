@@ -7,7 +7,6 @@ import {
   ProjectsList,
   ProjectsListSchema,
 } from "@shared/schemas/Project";
-import { User } from "@shared/schemas/User";
 import { Knex } from "knex";
 import { nanoid } from "nanoid";
 
@@ -48,10 +47,10 @@ export class ProjectsService {
 
     const projectId = await this.db("projects")
       .insert(rawProject)
-      .returning<Pick<User, "id">[] | undefined>("id");
+      .returning<Id | undefined>("id");
 
     if (!projectId) throw new AppError(APP_ERRORS.DATABASE_FAILED);
-    const result = IdSchema.parse(projectId[0].id);
+    const result = IdSchema.parse(projectId);
 
     return result;
   }
