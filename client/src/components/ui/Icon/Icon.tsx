@@ -8,7 +8,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 
 export const Icon: FC<IconProps> = ({ iconId, width, height, className, ...props }) => {
   return (
-    <svg width={width} height={height} {...props}>
+    <svg width={width} height={height} aria-hidden={true} {...props}>
       <use xlinkHref={`/sprite.svg#${iconId}`} />
     </svg>
   );

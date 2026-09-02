@@ -18,13 +18,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
   cacheDir: "../node_modules/.vite",
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@/assets/styles/global/variables" as *;`,
-      },
-    },
-  },
   server: {
     port: 5173,
     proxy: {
