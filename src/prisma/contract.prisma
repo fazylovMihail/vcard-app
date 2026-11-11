@@ -1,0 +1,29 @@
+// use prisma-8
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  code      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @onCreate(now()) @onUpdate(now())
+
+  session   Session[]
+}
+
+model Session {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  expiresAt DateTime @default(sql`(now() + '3 days'::interval)`)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Project {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  ghUrl     String
+  deployUrl String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @onCreate(now()) @onUpdate(now())
+}
