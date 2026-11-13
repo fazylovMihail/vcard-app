@@ -1,5 +1,4 @@
-import { fetchBaseQuery } from "@reduxjs/toolkit/query";
-import { createApi } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { CreateProject, Project, UpdateProject } from "./types";
 import { Id } from "@/lib/types/id";
 

@@ -1,4 +1,3 @@
-import { idSchema } from "@/lib/schemas/id";
 import { updateProjectSchema } from "@/features/projects/schemas";
 import { db } from "@/prisma/db";
 import { NextResponse } from "next/server";
