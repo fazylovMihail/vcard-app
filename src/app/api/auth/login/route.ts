@@ -1,4 +1,4 @@
-import { loginSchema } from "@/lib/schemas/user";
+import { loginSchema } from "@/features/auth/schemas";
 import { createSession } from "@/lib/session";
 import { db } from "@/prisma/db";
 import { NextResponse } from "next/server";

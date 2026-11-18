@@ -1,5 +1,5 @@
 import z from "zod";
-import { loginResponseSchema, loginSchema } from "../schemas/user";
+import { loginResponseSchema, loginSchema } from "./schemas";
 
 export type LoginInput = z.infer<typeof loginSchema>;
 
