@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { Theme } from "./types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { setTheme, themeSelector, toogleTheme } from "./themeSlice";
+import { setTheme, themeSelector, toggleTheme } from "./themeSlice";
 
-export function useTheme() {
+export default function useTheme() {
   const dispatch = useAppDispatch();
   const theme = useAppSelector(themeSelector);
 
@@ -21,12 +21,12 @@ export function useTheme() {
     }
   }, [dispatch]);
 
-  const toogleThemeHandler = () => {
+  const toggleThemeHandler = useCallback(() => {
     const nextTheme: Theme = theme === "light" ? "dark" : "light";
 
-    dispatch(toogleTheme());
+    dispatch(toggleTheme());
     localStorage.setItem("theme", JSON.stringify(nextTheme));
-  };
+  }, [theme, dispatch]);
 
-  return [theme, toogleThemeHandler] as const;
+  return [theme, toggleThemeHandler] as const;
 }

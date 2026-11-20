@@ -2,6 +2,7 @@ import StoreProvider from "@/store/Provider";
 import { ReactNode } from "react";
 import Header from "@/layouts/Header";
 import ThemeProvider from "@/features/theme/ThemeProvider";
+import LanguageProvider from "@/features/language/LanguageProvider";
 
 import "./globals.css";
 
@@ -13,10 +14,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         suppressHydrationWarning
       >
         <StoreProvider>
-          <ThemeProvider>
-            <Header />
-            <main className="grow">{children}</main>
-          </ThemeProvider>
+          <LanguageProvider>
+            <ThemeProvider>
+              <Header />
+              <main className="grow">{children}</main>
+            </ThemeProvider>
+          </LanguageProvider>
         </StoreProvider>
       </body>
     </html>
