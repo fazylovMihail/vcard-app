@@ -2,13 +2,19 @@ import { authApi } from "@/features/auth/authApi";
 import { projectsApi } from "@/features/projects/projectsApi";
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
+import themeSlice from "@/features/theme/themeSlice";
+import languageSlice from "@/features/language/languageSlice";
+
+const reducer = {
+  [projectsApi.reducerPath]: projectsApi.reducer,
+  [authApi.reducerPath]: projectsApi.reducer,
+  [themeSlice.name]: themeSlice.reducer,
+  [languageSlice.name]: languageSlice.reducer,
+};
 
 export const makeStore = () => {
   const store = configureStore({
-    reducer: {
-      [projectsApi.reducerPath]: projectsApi.reducer,
-      [authApi.reducerPath]: projectsApi.reducer,
-    },
+    reducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(projectsApi.middleware),
   });

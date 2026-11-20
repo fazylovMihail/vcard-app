@@ -1,10 +1,26 @@
+import StoreProvider from "@/store/Provider";
 import { ReactNode } from "react";
+import Header from "@/layouts/Header";
+import ThemeProvider from "@/features/theme/ThemeProvider";
+import LanguageProvider from "@/features/language/LanguageProvider";
+
+import "./globals.css";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html>
-      <body>
-        <main>{children}</main>
+      <body
+        className="flex flex-col m-0 min-h-screen font-IBM transition-colors duration-300 bg-(--bg-primary) text-(--text-main)"
+        suppressHydrationWarning
+      >
+        <StoreProvider>
+          <LanguageProvider>
+            <ThemeProvider>
+              <Header />
+              <main className="grow">{children}</main>
+            </ThemeProvider>
+          </LanguageProvider>
+        </StoreProvider>
       </body>
     </html>
   );

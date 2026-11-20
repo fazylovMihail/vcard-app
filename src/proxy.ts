@@ -13,7 +13,7 @@ function isPathMatch(pathname: string, routes: string[]): boolean {
   );
 }
 
-export function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   try {
     const { pathname } = request.nextUrl;
     const sessionCookie = request.cookies.get(SESSION_COOKIE);

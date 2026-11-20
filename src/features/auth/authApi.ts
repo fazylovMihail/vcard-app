@@ -1,4 +1,4 @@
-import { LoginInput, LoginResponse } from "@/lib/types/user";
+import { LoginInput, LoginResponse } from "./types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const authApi = createApi({
